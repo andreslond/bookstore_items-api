@@ -6,12 +6,12 @@ import (
 	"net/http"
 )
 
-func ResponseJson(w http.ResponseWriter, statusCode int, body interface{}) {
+func RespondJson(w http.ResponseWriter, statusCode int, body interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
 	json.NewEncoder(w).Encode(body)
 }
 
-func ResponseError(w http.ResponseWriter, err rest_errors.RestErr) {
-	ResponseJson(w, err.Status(), err)
+func RespondError(w http.ResponseWriter, err rest_errors.RestErr) {
+	RespondJson(w, err.Status(), err)
 }

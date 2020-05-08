@@ -16,7 +16,7 @@ type PingControllerInterface interface {
 
 type pingControllers struct{}
 
-func (u pingControllers) Ping(w http.ResponseWriter, r *http.Request) {
+func (u *pingControllers) Ping(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte(pong))
 }

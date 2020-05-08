@@ -1,6 +1,8 @@
 package app
 
 import (
+	"github.com/andrestor2/bookstore_items-api/clients/elasticsearch"
+	"github.com/andrestor2/bookstore_items-api/logger"
 	"github.com/gorilla/mux"
 	"net/http"
 	"time"
@@ -11,6 +13,7 @@ var (
 )
 
 func StartApplication() {
+	elasticsearch.Init()
 	mapUrls()
 
 	srv := &http.Server{
@@ -24,4 +27,5 @@ func StartApplication() {
 	if err := srv.ListenAndServe(); err != nil {
 		panic(err)
 	}
+	logger.Info("about to start the application...")
 }
