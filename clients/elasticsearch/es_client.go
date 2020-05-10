@@ -3,7 +3,7 @@ package elasticsearch
 import (
 	"context"
 	"fmt"
-	"github.com/andrestor2/bookstore_utils-go/rest_errors/logger"
+	"github.com/andrestor2/bookstore_utils-go/logger"
 	"github.com/olivere/elastic"
 	"time"
 )
