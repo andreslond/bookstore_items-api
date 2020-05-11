@@ -2,7 +2,7 @@ package items
 
 type Item struct {
 	Id                string      `json:"id"`
-	Seller            int64       `json:"title"`
+	Seller            int64       `json:"seller"`
 	Title             string      `json:"title"`
 	Description       Description `json:"description"`
 	Picture           []Picture   `json:"picture"`
