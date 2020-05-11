@@ -3,7 +3,6 @@ package services
 import (
 	"github.com/andrestor2/bookstore_items-api/domain/items"
 	"github.com/andrestor2/bookstore_utils-go/rest_errors"
-	"net/http"
 )
 
 var (
@@ -25,6 +24,10 @@ func (s *itemsService) Create(item items.Item) (*items.Item, *rest_errors.RestEr
 }
 
 func (s *itemsService) Get(itemId string) (*items.Item, rest_errors.RestErr) {
+	item := items.Item{Id: itemId}
 
-	return nil, rest_errors.NewRestError("implement me!", http.StatusNotImplemented, "not_implemented", nil)
+	if err := item.Get(); err != nil {
+		return nil, err
+	}
+	return &item, nil
 }
